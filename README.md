@@ -46,7 +46,7 @@
 > يستحق الاعتراف والامتنان. هذا المستودع لا يسعى إلى منافسة تطبيقه،
 > بل إلى إتاحة هذه البيانات القيّمة للمطوّرين في صيغة مفتوحة وسهلة التكامل.
 >
-> ندعو المجتمع إلى دعم التطبيق الأصلي: **[https://play.google.com/store/apps/details?id=com.mahmoud.android.MoadenLibya]**
+> ندعو المجتمع إلى دعم التطبيق الأصلي: ** (Android)[https://play.google.com/store/apps/details?id=com.mahmoud.android.MoadenLibya]** (iOS)[https://apps.apple.com/us/app/%D9%85%D8%A4%D8%B0%D9%86-%D9%84%D9%8A%D8%A8%D9%8A%D8%A7/id574303341]
 
 ---
 
