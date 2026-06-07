@@ -23,101 +23,6 @@
 
 ---
 
-## 📁 هيكل المستودع
-
-```
-prayer-times-json/
-│
-├── data/
-│   ├── ly/                      # 🇱🇾 ليبيا — 122 مدينة
-│   │   ├── tripoli.json
-│   │   ├── benghazi.json
-│   │   └── ...
-│   │
-│   ├── sa/                      # 🇸🇦 المملكة العربية السعودية — 117 مدينة
-│   │   ├── riyadh.json
-│   │   ├── jeddah.json
-│   │   └── ...
-│   │
-│   └── jo/                      # 🇯🇴 الأردن — 36 مدينة
-│       ├── amman.json
-│       ├── zarqa.json
-│       └── ...
-│
-├── combined/                    # ملفات مدمجة لكل دولة (ملف واحد لكل الدولة)
-│   ├── libya.json
-│   ├── saudi_arabia.json
-│   └── jordan.json
-│
-└── README.md
-```
-
----
-
-## 🗂️ بنية ملف JSON
-
-كل ملف مدينة يتبع البنية الموحّدة الآتية:
-
-```json
-{
-  "city": "Tripoli",
-  "city_ar": "طرابلس",
-  "country": "LY",
-  "latitude": 32.9023,
-  "longitude": 13.1803,
-  "times": {
-    "01": {
-      "fajr":    "05:12",
-      "sunrise": "06:48",
-      "dhuhr":   "12:15",
-      "asr":     "15:22",
-      "maghrib": "17:42",
-      "isha":    "19:08"
-    },
-    "02": { "...": "..." },
-    "12": { "...": "..." }
-  }
-}
-```
-
-> المفاتيح الرقمية `"01"` إلى `"12"` تمثّل أرقام الشهور الميلادية.  
-> كل شهر يحتوي على جدول الأوقات الخاص به ليعكس التغيّر الموسمي.
-
----
-
-## 🚀 أمثلة الاستخدام
-
-### JavaScript — Fetch API
-
-```javascript
-const month = String(new Date().getMonth() + 1).padStart(2, '0');
-
-const response = await fetch(
-  'https://raw.githubusercontent.com/YOUR_USERNAME/prayer-times-json/main/data/ly/tripoli.json'
-);
-const data = await response.json();
-
-const todayTimes = data.times[month];
-console.log('Fajr:', todayTimes.fajr);
-console.log('Maghrib:', todayTimes.maghrib);
-```
-
-### Python
-
-```python
-import json
-from datetime import date
-
-with open("data/ly/tripoli.json", encoding="utf-8") as f:
-    data = json.load(f)
-
-month = str(date.today().month).zfill(2)
-times = data["times"][month]
-print(f"Fajr: {times['fajr']} | Dhuhr: {times['dhuhr']} | Maghrib: {times['maghrib']}")
-```
-
----
-
 ## ✅ حالات الاستخدام المناسبة
 
 | حالة الاستخدام | الوصف |
@@ -126,14 +31,6 @@ print(f"Fajr: {times['fajr']} | Dhuhr: {times['dhuhr']} | Maghrib: {times['maghr
 | **مواقع إلكترونية** | تحميل سريع مع تقليل الاعتماد على خدمات خارجية |
 | **أجهزة IoT** | Raspberry Pi وESP32 لشاشات عرض أوقات الصلاة |
 | **تطبيقات المساجد** | الجداول الثابتة المعتمدة للعرض والإذاعة |
-
----
-
-## 📜 المصادر والمنهجية
-
-- **🇱🇾 ليبيا:** مستمدة من الجداول الرسمية لوزارة الأوقاف والشؤون الإسلامية الليبية، وهي الجهة الدينية الرسمية المعتمدة في البلاد.
-- **🇸🇦 المملكة العربية السعودية:** مواقيت رسمية معتمدة.
-- **🇯🇴 الأردن:** مواقيت رسمية معتمدة.
 
 ---
 
@@ -158,8 +55,6 @@ print(f"Fajr: {times['fajr']} | Dhuhr: {times['dhuhr']} | Maghrib: {times['maghr
 ---
 
 ## 📄 الرخصة
-
-مُرخَّص بموجب **[Creative Commons Attribution 4.0 International — CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**.
 
 يُسمح بالاستخدام الحرّ والتعديل وإعادة التوزيع، بشرط نسب الفضل إلى هذا المستودع والإشارة إلى مطوّر تطبيق مؤذن ليبيا مصدراً للبيانات الليبية.
 
